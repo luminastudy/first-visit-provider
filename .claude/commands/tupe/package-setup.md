@@ -669,7 +669,7 @@ if [ ! -f src/index.ts ]; then
  */
 
 export function hello(name: string): string {
-  return `Hello, ${name}!`
+  return 'Hello, ' + name + '!'
 }
 EOF
 fi
