@@ -1,0 +1,31 @@
+# Source files
+src/
+
+# Config files
+tsconfig.json
+rollup.config.js
+
+# Development files
+.github/
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Logs
+*.log
+
+# Tests
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+
+# Documentation (keep README.md)
+docs/
+
+# Kiro and Claude directories
+.kiro/
+.claude/
