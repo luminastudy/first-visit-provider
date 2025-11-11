@@ -14,7 +14,7 @@ A headless React provider for handling first-time visitor language selection. Bu
 ## Installation
 
 ```bash
-npm install @luminastudy/first-visit-provider
+npm install @lumina-study/first-visit-provider
 ```
 
 ## Usage
@@ -22,7 +22,7 @@ npm install @luminastudy/first-visit-provider
 ### Basic Example
 
 ```tsx
-import { FirstVisitProvider } from '@luminastudy/first-visit-provider';
+import { FirstVisitProvider } from '@lumina-study/first-visit-provider';
 
 function App() {
   return (
@@ -56,7 +56,7 @@ function App() {
 ### With Custom Language Names
 
 ```tsx
-import { FirstVisitProvider, LanguageCode } from '@luminastudy/first-visit-provider';
+import { FirstVisitProvider, LanguageCode } from '@lumina-study/first-visit-provider';
 
 const LANGUAGE_NAMES: Record<LanguageCode, string> = {
   en: 'English',
@@ -93,7 +93,7 @@ function App() {
 ### With i18n Integration
 
 ```tsx
-import { FirstVisitProvider } from '@luminastudy/first-visit-provider';
+import { FirstVisitProvider } from '@lumina-study/first-visit-provider';
 import { useTranslation } from 'react-i18next';
 
 function App() {
@@ -133,7 +133,7 @@ function App() {
 For components that only need to check first visit status:
 
 ```tsx
-import { useFirstVisit } from '@luminastudy/first-visit-provider';
+import { useFirstVisit } from '@lumina-study/first-visit-provider';
 
 function WelcomeBanner() {
   const { isFirstVisit, selectedLanguage, isLoading } = useFirstVisit();
@@ -203,7 +203,7 @@ import type {
   FirstVisitProviderProps,
   FirstVisitRenderProps,
   FirstVisitStorageData,
-} from '@luminastudy/first-visit-provider';
+} from '@lumina-study/first-visit-provider';
 ```
 
 ## Storage Format

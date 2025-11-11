@@ -1,5 +1,5 @@
 {
-  "name": "@luminastudy/first-visit-provider",
+  "name": "@lumina-study/first-visit-provider",
   "version": "1.0.0",
   "description": "A headless React provider for handling first-time visitor language selection",
   "main": "dist/index.js",
