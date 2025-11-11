@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
-import { FirstVisitStorageData, LanguageCode } from './types';
+import { useEffect, useState } from 'react'
+import { FirstVisitStorageData, LanguageCode } from './types'
 
-const DEFAULT_STORAGE_KEY = 'lumina_first_visit';
+const DEFAULT_STORAGE_KEY = 'lumina_first_visit'
 
 /**
  * Hook to check first visit status without using the provider
@@ -23,35 +23,37 @@ const DEFAULT_STORAGE_KEY = 'lumina_first_visit';
  * }
  * ```
  */
-export function useFirstVisit(storageKey: string = DEFAULT_STORAGE_KEY) {
-  const [isFirstVisit, setIsFirstVisit] = useState<boolean>(false);
+export function useFirstVisit(storageKey?: string) {
+  const finalStorageKey =
+    storageKey !== undefined ? storageKey : DEFAULT_STORAGE_KEY
+  const [isFirstVisit, setIsFirstVisit] = useState<boolean>(false)
   const [selectedLanguage, setSelectedLanguage] = useState<LanguageCode | null>(
     null
-  );
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  )
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(storageKey);
+      const stored = localStorage.getItem(finalStorageKey)
 
       if (stored) {
-        const data: FirstVisitStorageData = JSON.parse(stored);
-        setIsFirstVisit(!data.hasVisited);
-        setSelectedLanguage(data.selectedLanguage);
+        const data: FirstVisitStorageData = JSON.parse(stored)
+        setIsFirstVisit(!data.hasVisited)
+        setSelectedLanguage(data.selectedLanguage)
       } else {
-        setIsFirstVisit(true);
+        setIsFirstVisit(true)
       }
     } catch (error) {
-      console.error('Failed to read first visit data from localStorage:', error);
-      setIsFirstVisit(true);
+      console.error('Failed to read first visit data from localStorage:', error)
+      setIsFirstVisit(true)
     } finally {
-      setIsLoading(false);
+      setIsLoading(false)
     }
-  }, [storageKey]);
+  }, [finalStorageKey])
 
   return {
     isFirstVisit,
     selectedLanguage,
     isLoading,
-  };
+  }
 }

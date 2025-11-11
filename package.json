@@ -2,6 +2,7 @@
   "name": "@lumina-study/first-visit-provider",
   "version": "1.0.0",
   "description": "A headless React provider for handling first-time visitor language selection",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -11,7 +12,17 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "prepare": "npm run build"
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,md}\"",
+    "spell": "cspell lint '**/*.{ts,tsx,js,md,json}' --gitignore",
+    "spell:check": "cspell lint '**/*.{ts,tsx,js,md,json}' --gitignore",
+    "release": "release-it",
+    "prepare": "husky"
   },
   "keywords": [
     "react",
@@ -23,6 +34,12 @@
   ],
   "author": "",
   "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0",
     "react-dom": "^16.8.0 || ^17.0.0 || ^18.0.0"
@@ -31,13 +48,26 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.6",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^14.6.1",
     "@types/react": "^18.2.45",
     "@types/react-dom": "^18.2.18",
+    "@vitest/coverage-v8": "^4.0.8",
+    "cspell": "^9.3.0",
+    "eslint": "^9.39.1",
+    "eslint-config-agent": "^1.7.2",
+    "husky": "^9.1.7",
+    "jsdom": "^27.1.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.6.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "release-it": "^19.0.6",
     "rollup": "^4.9.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "tslib": "^2.6.2",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^4.0.8"
   }
 }
